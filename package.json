@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/GrognardPrograms/yotf-web-client/issues"
   },
-  "homepage": "https://github.com/GrognardPrograms/yotf-web-client#readme"
+  "homepage": "https://github.com/GrognardPrograms/yotf-web-client#readme",
+  "dependencies": {
+    "three": "^0.155.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
 }
