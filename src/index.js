@@ -1,6 +1,1 @@
-module.exports = {
-  placeholder: () => {
-    console.log("test");
-    return 0;
-  }
-}
+export {loadClient} from './loadClient';

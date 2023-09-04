@@ -1,3 +1,3 @@
-import { placeholder } from "..";
+import { loadClient } from "..";
 
-placeholder()
+loadClient(document.body)
