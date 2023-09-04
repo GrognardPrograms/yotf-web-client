@@ -1,4 +1,6 @@
-export const placeholder = () => {
-  console.log("test");
-  return 0;
+module.exports = {
+  placeholder: () => {
+    console.log("test");
+    return 0;
+  }
 }
