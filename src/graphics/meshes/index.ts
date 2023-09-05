@@ -1,1 +1,1 @@
-export {buildWall} from './buildWall';
+export {buildWallMesh} from './buildWallMesh';

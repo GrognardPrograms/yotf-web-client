@@ -1,6 +1,7 @@
 import { BoxGeometry, Mesh, MeshBasicMaterial, Texture, TextureLoader } from "three";
+import { Coordinate, Rotation } from "../../types";
 
-export const buildWall = (texture: Texture, x?: number, y?: number): Mesh => {
+export const buildWallMesh = (texture: Texture, position: Coordinate, rotation: Rotation): Mesh => {
   const wallGeometry = new BoxGeometry(0.5, 2, 2);
   const wallTexture = texture ?? new TextureLoader().load("https://upload.wikimedia.org/wikipedia/en/3/3f/Richard_d_james_album_cover.jpg");
   const wallMaterial = new MeshBasicMaterial({map: wallTexture});
