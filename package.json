@@ -1,6 +1,6 @@
 {
   "name": "@grognard/yotf-web-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Three.js game client for Year of the Fox",
   "main": "index.js",
   "scripts": {
