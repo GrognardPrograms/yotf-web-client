@@ -1,5 +1,7 @@
 import { BoxGeometry, Camera, Mesh, MeshBasicMaterial, Scene, TextureLoader, WebGLRenderer } from "three";
 
+import { buildAnimLoop } from "./graphics";
+
 export const loadClient = async (parentDomElement) => {
 
   const renderer = new WebGLRenderer();
@@ -9,7 +11,6 @@ export const loadClient = async (parentDomElement) => {
 
   const wallGeometry = new BoxGeometry();
   const wallTexture = new TextureLoader().load("https://upload.wikimedia.org/wikipedia/en/3/3f/Richard_d_james_album_cover.jpg");
-  await new Promise((resolve) => {setTimeout(() => {resolve()}, 1000)})
   const wallMaterial = new MeshBasicMaterial({map: wallTexture});
   const wallMesh = new Mesh(wallGeometry, wallMaterial);
 
@@ -20,7 +21,7 @@ export const loadClient = async (parentDomElement) => {
 
   parentDomElement.appendChild(renderer.domElement);
 
-  renderer.render(scene, camera)
+  buildAnimLoop(renderer, scene, camera);
 
   return 0;
 }
