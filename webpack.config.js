@@ -8,7 +8,7 @@ module.exports = (env, argv) => {
   const plugins = [];
 
   if(isDev) {
-    entry.devRunner = './src/utils/devRunner.js'
+    entry.devRunner = './src/utils/test-utils/devRunner.js'
 
     plugins.push(new HtmlWebpackPlugin())
   }
@@ -20,6 +20,16 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, './dist'),
       clean: true
     },
+    module: {
+      rules: [
+        {
+          loader: 'ts-loader',
+          test: /\.ts$/,
+          exclude: '/node_modules'
+        }
+      ]
+    },
+    resolve: ['.ts', '.js'],
     plugins
   }
 };
