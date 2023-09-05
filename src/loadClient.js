@@ -1,23 +1,18 @@
-import { BoxGeometry, Camera, Mesh, MeshBasicMaterial, Scene, TextureLoader, WebGLRenderer } from "three";
+import { Camera, Scene, WebGLRenderer } from "three";
 
 import { buildAnimLoop } from "./graphics";
+import { buildWall } from "./graphics/meshes/buildWall";
 
 export const loadClient = async (parentDomElement) => {
 
   const renderer = new WebGLRenderer();
-  renderer.setSize(300, 300);
+  renderer.setSize(window.innerHeight * 0.75, window.innerHeight * 0.75);
   const scene = new Scene();
   const camera = new Camera();
 
-  const wallGeometry = new BoxGeometry();
-  const wallTexture = new TextureLoader().load("https://upload.wikimedia.org/wikipedia/en/3/3f/Richard_d_james_album_cover.jpg");
-  const wallMaterial = new MeshBasicMaterial({map: wallTexture});
-  const wallMesh = new Mesh(wallGeometry, wallMaterial);
+  const wallMesh = buildWall();
 
-  wallMesh.rotation.x = 0.78
-  wallMesh.rotation.y = 0.78
-
-  scene.add(wallMesh)
+  scene.add(wallMesh);
 
   parentDomElement.appendChild(renderer.domElement);
 
