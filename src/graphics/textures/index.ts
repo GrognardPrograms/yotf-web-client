@@ -1,0 +1,1 @@
+export {loadFaceTexture} from './loadFaceTexture';

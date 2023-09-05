@@ -4,11 +4,11 @@ const path = require('path');
 module.exports = (env, argv) => {
   const isDev = argv.mode === 'development'
 
-  const entry = { index: './src/index.js' };
+  const entry = { index: './src/index.ts' };
   const plugins = [];
 
   if(isDev) {
-    entry.devRunner = './src/utils/test-utils/devRunner.js'
+    entry.devRunner = './src/utils/test-utils/devRunner.ts'
 
     plugins.push(new HtmlWebpackPlugin())
   }
@@ -29,7 +29,9 @@ module.exports = (env, argv) => {
         }
       ]
     },
-    resolve: ['.ts', '.js'],
+    resolve: {
+      extensions: ['.ts', '.js']
+    },
     plugins
   }
 };
