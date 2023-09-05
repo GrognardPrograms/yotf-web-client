@@ -12,7 +12,7 @@ export const loadClient = (parentDomElement) => {
   const scene = new Scene();
   const camera = new Camera();
 
-  const wallMesh = buildWallMesh(textureDictionary.get('faceTexture'), new Coordinate(0, 0, 0), new Rotation(0, 0, 0));
+  const wallMesh = buildWallMesh(textureDictionary.get('faceTexture'), new Coordinate(0, 0, 0), new Rotation(0, 45, 0));
   scene.add(wallMesh);
 
   parentDomElement.appendChild(renderer.domElement);
