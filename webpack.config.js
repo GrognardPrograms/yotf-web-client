@@ -23,19 +23,9 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          use: [
-            {
-              loader: 'babel-loader',
-              options: {
-                presets: ['@babel/preset-env']
-              }
-            },
-            {
-              loader: 'ts-loader'
-            }
-          ],
+          loader: 'ts-loader',
           test: /\.ts$/,
-          exclude: '/node_modules/'
+          exclude: '/node_modules'
         }
       ]
     },
