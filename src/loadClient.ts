@@ -1,8 +1,8 @@
 import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
 
 import { buildAnimLoop, buildTextureDictionary } from "./graphics";
-import { buildWallMesh } from "./graphics/meshes";
-import { Coordinate, Rotation } from "./types";
+import { AreaMap, Coordinate } from "./types";
+import { loadScene } from "./graphics/loadScene";
 
 export const loadClient = (parentDomElement) => {
   const textureDictionary = buildTextureDictionary();
@@ -11,14 +11,14 @@ export const loadClient = (parentDomElement) => {
   renderer.setSize(window.innerHeight * 0.75, window.innerHeight * 0.75);
   const scene = new Scene();
   const camera = new PerspectiveCamera(90, 1, 0.1, 100);
+  camera.rotation.y += Math.PI;
+  camera.position.z += 0;
 
-  camera.position.y += 1;
-  camera.position.z += 2;
-
-  const wallMesh = buildWallMesh(textureDictionary.get('faceTexture'), new Coordinate(0, 0, 0), new Rotation(0, 45, 0));
-  scene.add(wallMesh);
+  const areaMap = new AreaMap(11, 11, [new Coordinate(5, 7, 0)]);
+  loadScene(scene, textureDictionary, areaMap);
 
   parentDomElement.appendChild(renderer.domElement);
 
-  buildAnimLoop(renderer, scene, camera);
+  const animLoop = buildAnimLoop(renderer, scene, camera);
+  animLoop();
 }
