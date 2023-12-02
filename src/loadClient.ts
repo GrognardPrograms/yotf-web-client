@@ -1,10 +1,10 @@
 import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
 
 import { buildAnimLoop, buildTextureDictionary } from "./graphics";
-import { AreaMap, Coordinate } from "./types";
+import { AreaMap, Coordinate, Rotation } from "./types";
 import { loadScene } from "./graphics/loadScene";
 import { buildKeydownHandler } from "./controls/buildKeydownHandler";
-import { Unit } from "./types/unit";
+import { Unit } from "./types";
 
 export const loadClient = (parentDomElement) => {
   const renderer = new WebGLRenderer();
@@ -15,7 +15,7 @@ export const loadClient = (parentDomElement) => {
   camera.position.z += 0;
 
   const animLoop = buildAnimLoop(renderer, scene, camera);
-  const keydownHandler = buildKeydownHandler(new Unit(new Coordinate(0, 0, 0)), camera);
+  const keydownHandler = buildKeydownHandler(new Unit(new Coordinate(0, 0, 0), new Rotation(0, 0, 0)), camera);
 
   const textureDictionary = buildTextureDictionary();
 
