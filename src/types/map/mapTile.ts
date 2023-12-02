@@ -7,11 +7,15 @@ export class MapTile {
     this.#tileType = tileType;
   }
 
-  getTileType() {
+  getTileType(): TileType {
     return this.#tileType;
   }
 
-  clone() {
-    return new MapTile(this.#tileType);
+  getMapTileValues(): MapTileValues {
+    return {tileType: this.#tileType};
   }
+}
+
+export interface MapTileValues {
+  tileType: TileType;
 }

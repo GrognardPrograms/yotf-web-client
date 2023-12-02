@@ -1,5 +1,5 @@
-import { Coordinate } from ".";
-import { MapTile } from "./mapTile";
+import { Coordinate } from "../geometry/coordinate";
+import { MapTile, MapTileValues } from "./mapTile";
 import { TileType } from "./tileType";
 
 export class AreaMap {
@@ -29,8 +29,8 @@ export class AreaMap {
     }
   }
 
-  getMapTile(x: number, y: number): MapTile {
-    return this.#mapGrid[x][y].clone();
+  getMapTile(x: number, y: number): MapTileValues {
+    return this.#mapGrid[x][y].getMapTileValues();
   }
 
   getWidth() {

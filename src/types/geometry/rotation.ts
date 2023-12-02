@@ -9,31 +9,49 @@ export class Rotation {
     this.#zRtn = zRtn;
   }
 
-  getXRtnDeg() {
+  getXRtnDeg(): number {
     return this.#xRtn;
   }
 
-  getYRtnDeg() {
+  getYRtnDeg(): number {
     return this.#yRtn;
   }
 
-  getZRtnDeg() {
+  getZRtnDeg(): number {
     return this.#zRtn;
   }
 
-  getXRtnRad() {
+  getRtnDegValues(): RotationValues {
+    return { x: this.#xRtn, y: this.#yRtn, z: this.#zRtn };
+  }
+
+  getXRtnRad(): number {
     return this.#degToRad(this.#xRtn);
   }
 
-  getYRtnRad() {
+  getYRtnRad(): number {
     return this.#degToRad(this.#yRtn);
   }
 
-  getZRtnRad() {
+  getZRtnRad(): number {
     return this.#degToRad(this.#zRtn);
+  }
+
+  getRtnRadValues(): RotationValues {
+    return {
+      x: this.getXRtnRad(),
+      y: this.getYRtnRad(),
+      z: this.getZRtnRad()
+    };
   }
 
   #degToRad(deg: number) {
     return deg * Math.PI / 180;
   }
+}
+
+export interface RotationValues {
+  x: number;
+  y: number;
+  z: number;
 }

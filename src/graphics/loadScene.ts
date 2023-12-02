@@ -13,14 +13,11 @@ export const loadScene = (scene: any, textureDictionary: Map<string, Texture>, a
 
   for(let x = 0; x < width; x++) {
     for(let y = 0; y < height; y++) {
-      const mapTile = areaMap.getMapTile(x, y);
+      const {tileType} = areaMap.getMapTile(x, y);
 
-      if(mapTile.getTileType() === TileType.Empty) {
-      } else if(mapTile.getTileType() === TileType.Wall) {
-        console.log((x - adjustX) + " " + (y - adjustY));
-        const wallMesh = buildWallMesh(textureDictionary.get('faceTexture'), new Coordinate(x - adjustX, 0, y - adjustY), new Rotation(0, 0, 0));
-        console.log("ADDING");
-        console.log(wallMesh.position.x + " " + wallMesh.position.y + " " + wallMesh.position.z)
+      if(tileType === TileType.Wall) {
+        const wallTexture: Texture = textureDictionary.get('faceTexture');
+        const wallMesh = buildWallMesh(wallTexture, new Coordinate(x - adjustX, 0, y - adjustY), new Rotation(0, 0, 0));
         
         scene.add(wallMesh);
       }
