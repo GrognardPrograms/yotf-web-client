@@ -21,7 +21,7 @@ export class Rotation {
     return this.#zRtn;
   }
 
-  getRtnDegValues(): RotationValues {
+  getRtnDegValues(): RotationSnapshot {
     return { x: this.#xRtn, y: this.#yRtn, z: this.#zRtn };
   }
 
@@ -37,7 +37,7 @@ export class Rotation {
     return this.#degToRad(this.#zRtn);
   }
 
-  getRtnRadValues(): RotationValues {
+  getRtnRadValues(): RotationSnapshot {
     return {
       x: this.getXRtnRad(),
       y: this.getYRtnRad(),
@@ -50,7 +50,7 @@ export class Rotation {
   }
 }
 
-export interface RotationValues {
+export interface RotationSnapshot {
   x: number;
   y: number;
   z: number;

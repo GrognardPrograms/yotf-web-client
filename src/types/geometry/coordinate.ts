@@ -21,7 +21,7 @@ export class Coordinate {
     return this.#z;
   }
 
-  getCoordinateValues(): CoordinateValues {
+  getCoordinateValues(): CoordinateSnapshot {
     return { x: this.#x, y: this.#y, z: this.#z };
   }
 
@@ -42,7 +42,7 @@ export class Coordinate {
   }
 }
 
-export interface CoordinateValues {
+export interface CoordinateSnapshot {
   x: number,
   y: number,
   z: number

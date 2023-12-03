@@ -1,5 +1,5 @@
-import { Rotation, RotationValues } from "../geometry/rotation";
-import { Coordinate, CoordinateValues } from "../geometry/coordinate";
+import { Rotation, RotationSnapshot } from "../geometry/rotation";
+import { Coordinate, CoordinateSnapshot } from "../geometry/coordinate";
 
 export class Entity {
   #position: Coordinate;
@@ -22,7 +22,7 @@ export class Entity {
     return this.#position.getZ();
   }
 
-  getCoordinateValues(): CoordinateValues {
+  getCoordinateValues(): CoordinateSnapshot {
     return this.#position.getCoordinateValues();
   }
 
@@ -38,7 +38,7 @@ export class Entity {
     return this.#rotation.getZRtnDeg();
   }
 
-  getRtnDegValues(): CoordinateValues {
+  getRtnDegValues(): RotationSnapshot {
     return this.#rotation.getRtnDegValues();
   }
 
@@ -54,7 +54,7 @@ export class Entity {
     return this.#rotation.getZRtnRad();
   }
 
-  getRtnRadValues(): RotationValues {
+  getRtnRadValues(): RotationSnapshot {
     return this.#rotation.getRtnRadValues();
   }
 
