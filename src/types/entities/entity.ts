@@ -27,35 +27,19 @@ export class Entity {
   }
 
   getXRtnDeg(): number {
-    return this.#rotation.getXRtnDeg();
+    return this.#rotation.getXRtn();
   }
 
   getYRtnDeg(): number {
-    return this.#rotation.getYRtnDeg();
+    return this.#rotation.getYRtn();
   }
 
   getZRtnDeg(): number {
-    return this.#rotation.getZRtnDeg();
+    return this.#rotation.getZRtn();
   }
 
-  getRtnDegValues(): RotationSnapshot {
-    return this.#rotation.getRtnDegValues();
-  }
-
-  getXRtnRad(): number {
-    return this.#rotation.getXRtnRad();
-  }
-
-  getYRtnRad(): number {
-    return this.#rotation.getYRtnRad();
-  }
-
-  getZRtnRad(): number {
-    return this.#rotation.getZRtnRad();
-  }
-
-  getRtnRadValues(): RotationSnapshot {
-    return this.#rotation.getRtnRadValues();
+  getRtnValues(): RotationSnapshot {
+    return this.#rotation.getRtnValues();
   }
 
   moveX(delta: number): void {

@@ -13,9 +13,9 @@ export const buildWallMesh = (texture: Texture, position: Coordinate, rotation: 
   wallMesh.position.y = position.getY();
   wallMesh.position.z = position.getZ();
   
-  wallMesh.rotation.x = rotation.getXRtnRad();
-  wallMesh.rotation.y = rotation.getYRtnRad();
-  wallMesh.rotation.z = rotation.getZRtnRad();
+  wallMesh.rotation.x = rotation.getXRtn();
+  wallMesh.rotation.y = rotation.getYRtn();
+  wallMesh.rotation.z = rotation.getZRtn();
 
   return wallMesh;
 }

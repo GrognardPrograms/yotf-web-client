@@ -9,44 +9,24 @@ export class Rotation {
     this.#zRtn = zRtn;
   }
 
-  getXRtnDeg(): number {
+  getXRtn(): number {
     return this.#xRtn;
   }
 
-  getYRtnDeg(): number {
+  getYRtn(): number {
     return this.#yRtn;
   }
 
-  getZRtnDeg(): number {
+  getZRtn(): number {
     return this.#zRtn;
   }
 
-  getRtnDegValues(): RotationSnapshot {
-    return { x: this.#xRtn, y: this.#yRtn, z: this.#zRtn };
-  }
-
-  getXRtnRad(): number {
-    return this.#degToRad(this.#xRtn);
-  }
-
-  getYRtnRad(): number {
-    return this.#degToRad(this.#yRtn);
-  }
-
-  getZRtnRad(): number {
-    return this.#degToRad(this.#zRtn);
-  }
-
-  getRtnRadValues(): RotationSnapshot {
+  getRtnValues(): RotationSnapshot {
     return {
-      x: this.getXRtnRad(),
-      y: this.getYRtnRad(),
-      z: this.getZRtnRad()
+      x: this.#xRtn,
+      y: this.#yRtn,
+      z: this.#zRtn
     };
-  }
-
-  #degToRad(deg: number) {
-    return deg * Math.PI / 180;
   }
 }
 
