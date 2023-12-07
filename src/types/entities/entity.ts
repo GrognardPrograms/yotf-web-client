@@ -26,15 +26,15 @@ export class Entity {
     return this.#position.getCoordinateValues();
   }
 
-  getXRtnDeg(): number {
+  getXRtn(): number {
     return this.#rotation.getXRtn();
   }
 
-  getYRtnDeg(): number {
+  getYRtn(): number {
     return this.#rotation.getYRtn();
   }
 
-  getZRtnDeg(): number {
+  getZRtn(): number {
     return this.#rotation.getZRtn();
   }
 

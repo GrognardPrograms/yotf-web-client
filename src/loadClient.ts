@@ -1,10 +1,8 @@
 import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
 
-import { buildAnimLoop, buildTextureDictionary } from "./graphics";
-import { AreaMap, Coordinate, Rotation } from "./types";
-import { loadScene } from "./graphics/loadScene";
+import { buildAnimLoop, buildTextureDictionary, loadScene } from "./graphics";
+import { AreaMap, Coordinate, Rotation, Unit } from "./types";
 import { buildKeydownHandler } from "./controls/buildKeydownHandler";
-import { Unit } from "./types";
 
 export const loadClient = (parentDomElement) => {
   const renderer = new WebGLRenderer();

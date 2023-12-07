@@ -36,10 +36,6 @@ export class Coordinate {
   setZ(value: number): void {
     this.#z = value;
   }
-
-  clone(): Coordinate {
-    return new Coordinate(this.#x, this.#y, this.#z);
-  }
 }
 
 export interface CoordinateSnapshot {
