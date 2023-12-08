@@ -30,7 +30,7 @@ export class Coordinate {
   }
 
   setY(value: number): void {
-    this.#z = value;
+    this.#y = value;
   }
 
   setZ(value: number): void {

@@ -28,6 +28,18 @@ export class Rotation {
       z: this.#zRtn
     };
   }
+
+  setXRtn(value: number): void {
+    this.#xRtn = value;
+  }
+
+  setYRtn(value: number): void {
+    this.#yRtn = value;
+  }
+
+  setZRtn(value: number): void {
+    this.#zRtn = value;
+  }
 }
 
 export interface RotationSnapshot {

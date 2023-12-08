@@ -48,12 +48,27 @@ export class Entity {
   }
 
   moveY(delta: number): void {
-    const y= this.#position.getY();
+    const y = this.#position.getY();
     this.#position.setY(y + delta);
   }
 
   moveZ(delta: number): void {
     const z = this.#position.getZ();
     this.#position.setZ(z + delta);
+  }
+
+  rotateX(delta: number): void {
+    const x = this.#rotation.getXRtn();
+    this.#rotation.setXRtn(x + delta);
+  }
+
+  rotateY(delta: number): void {
+    const y = this.#rotation.getYRtn();
+    this.#rotation.setYRtn(y + delta);
+  }
+
+  rotateZ(delta: number): void {
+    const z = this.#rotation.getZRtn();
+    this.#rotation.setZRtn(z + delta);
   }
 }

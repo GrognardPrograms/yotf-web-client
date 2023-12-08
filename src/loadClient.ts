@@ -1,8 +1,9 @@
 import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
 
 import { buildAnimLoop, buildTextureDictionary, loadScene } from "./graphics";
-import { AreaMap, Coordinate, Rotation, Unit } from "./types";
+import { AreaMap, Coordinate, Player, Rotation } from "./types";
 import { buildKeydownHandler } from "./controls/buildKeydownHandler";
+import { buildMouseHandler } from "./controls/buildMouseHandler";
 
 export const loadClient = (parentDomElement) => {
   const renderer = new WebGLRenderer();
@@ -12,8 +13,11 @@ export const loadClient = (parentDomElement) => {
   camera.rotation.y += Math.PI;
   camera.position.z += 0;
 
+  const playerCharacter = new Player(new Coordinate(0, 0, 0), new Rotation(0, 0, 0), camera);
+
   const animLoop = buildAnimLoop(renderer, scene, camera);
-  const keydownHandler = buildKeydownHandler(new Unit(new Coordinate(0, 0, 0), new Rotation(0, 0, 0)), camera);
+  const keydownHandler = buildKeydownHandler(playerCharacter);
+  const mouseHandler = buildMouseHandler(playerCharacter);
 
   const textureDictionary = buildTextureDictionary();
 
@@ -22,6 +26,7 @@ export const loadClient = (parentDomElement) => {
 
   parentDomElement.appendChild(renderer.domElement);
   parentDomElement.addEventListener('keydown', keydownHandler);
+  parentDomElement.addEventListener('mousemove', mouseHandler);
 
   animLoop();
 }
