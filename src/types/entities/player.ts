@@ -4,17 +4,13 @@ import { Unit } from "./unit";
 import { Rotation } from "../geometry/rotation";
 import { Coordinate } from "../geometry/coordinate";
 
-const xRtnAdj = 2;
-const yRtnAdj = 2;
-const zRtnAdj = 1;
-
 export class Player extends Unit {
   #camera
 
-  constructor(positionIn: Coordinate, rotationIn: Rotation, cameraIn: Camera) {
-    super(positionIn, rotationIn);
+  constructor(posIn: Coordinate, rtnIn: Rotation, camIn: Camera) {
+    super(posIn, rtnIn);
 
-    this.#camera = cameraIn;
+    this.#camera = camIn;
   }
 
   moveX(delta: number): void {
@@ -43,25 +39,26 @@ export class Player extends Unit {
 
   rotateX(delta: number): void {
     super.rotateX(delta);
-    camera and entity rotation are desyncing due to the check in mouse handler checking rotations and the camera being set here
-    const {x: cameraX, y: cameraY, z: cameraZ} = this.#camera.rotation;
 
-    const tempCameraX = cameraX - delta / xRtnAdj;
-    const newCameraX = Math.max(Math.min(tempCameraX, 0.35), -0.35);
-    this.#camera.rotation.set(newCameraX, cameraY, cameraZ, 'YXZ');
+    const { x: camRtnX, y: camRtnY, z: camRtnZ } = this.#camera.rotation;
+    this.#camera.rotation.set(camRtnX - delta, camRtnY, camRtnZ, 'YXZ');
+
+    
+    console.log("x: " + super.getXRtn());
+    console.log("camX: " + this.#camera.rotation.x)
   }
 
   rotateY(delta: number): void {
     super.rotateY(delta);
     
-    const {x: cameraX, y: cameraY, z: cameraZ} = this.#camera.rotation;
-    this.#camera.rotation.set(cameraX, cameraY - delta / yRtnAdj, cameraZ, 'YXZ');
+    const { x: camRtnX, y: camRtnY, z: camRtnZ } = this.#camera.rotation;
+    this.#camera.rotation.set(camRtnX, camRtnY - delta, camRtnZ, 'YXZ');
   }
 
   rotateZ(delta: number): void {
     super.rotateZ(delta);
     
-    const {x: cameraX, y: cameraY, z: cameraZ} = this.#camera.rotation;
-    this.#camera.rotation.set(cameraX, cameraY, cameraZ - delta / zRtnAdj, 'YXZ');
+    const { x: camRtnX, y: camRtnY, z: camRtnZ } = this.#camera.rotation;
+    this.#camera.rotation.set(camRtnX, camRtnY, camRtnZ - delta, 'YXZ');
   }
 }

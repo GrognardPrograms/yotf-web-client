@@ -5,9 +5,9 @@ export class Entity {
   #position: Coordinate;
   #rotation: Rotation;
 
-  constructor(positionIn: Coordinate, rotationIn: Rotation) {
-    this.#position = positionIn;
-    this.#rotation = rotationIn;
+  constructor(posIn: Coordinate, rtnIn: Rotation) {
+    this.#position = posIn;
+    this.#rotation = rtnIn;
   }
 
   getXPos(): number {

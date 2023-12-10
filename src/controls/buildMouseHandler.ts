@@ -1,20 +1,27 @@
 import { Unit } from "../types";
 import { degToRad } from "../utils/geometry/degToRad";
 
+const xRtnAdj = 2;
+const yRtnAdj = 2;
+
+const highViewBound = -0.375;
+const lowViewBound = 0.375;
+
 export const buildMouseHandler = (playerCharacter: Unit) => {
   return (e: MouseEvent) => {
-    const { x } = playerCharacter.getRtnValues();
-    //playerCharacter.rotateY(degToRad(e.movementX));
+    playerCharacter.rotateX(degToRad(e.movementY) / xRtnAdj);
+    playerCharacter.rotateY(degToRad(e.movementX) / yRtnAdj);
 
-    console.log("x: " + x);
-    console.log("e.movementY: " + e.movementY);
+    const x = playerCharacter.getRtnValues().x;
+    const above = x < highViewBound;
+    const below = x > lowViewBound;
 
-    if ((
-      x > -0.35 || e.movementY > 0
-    ) && (
-      x < 0.35 || e.movementY < 0
-    )) {
-      playerCharacter.rotateX(degToRad(e.movementY));
+    if(above) {
+      const correction = highViewBound - x;
+      playerCharacter.rotateX(correction);
+    } else if(below) {
+      const correction = lowViewBound - x;
+      playerCharacter.rotateX(correction);
     }
   }
 }
