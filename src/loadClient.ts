@@ -2,8 +2,10 @@ import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
 
 import { buildAnimLoop, buildTextureDictionary, loadScene } from "./graphics";
 import { AreaMap, Coordinate, Player, Rotation } from "./types";
-import { buildKeydownHandler } from "./controls/buildKeydownHandler";
+import { buildKeyboardHandler } from "./controls/buildKeyboardHandler";
 import { buildMouseHandler } from "./controls/buildMouseHandler";
+import { buildCtrlLoop } from "./controls/buildCtrlLoop";
+import { ControlState } from "./controls/types/controlState";
 
 export const loadClient = (parentDomElement) => {
   const renderer = new WebGLRenderer();
@@ -15,8 +17,11 @@ export const loadClient = (parentDomElement) => {
 
   const playerCharacter = new Player(new Coordinate(0, 0, 0), new Rotation(0, 0, 0), camera);
 
+  const controlState = new ControlState();
+
   const animLoop = buildAnimLoop(renderer, scene, camera);
-  const keydownHandler = buildKeydownHandler(playerCharacter);
+  const { ctrlLoop, killLoop } = buildCtrlLoop(controlState, playerCharacter);
+  const keyboardHandler = buildKeyboardHandler(controlState);
   const mouseHandler = buildMouseHandler(playerCharacter);
 
   const textureDictionary = buildTextureDictionary();
@@ -25,8 +30,11 @@ export const loadClient = (parentDomElement) => {
   loadScene(scene, textureDictionary, areaMap);
 
   parentDomElement.appendChild(renderer.domElement);
-  parentDomElement.addEventListener('keydown', keydownHandler);
+  parentDomElement.addEventListener('keydown', keyboardHandler);
+  parentDomElement.addEventListener('keyup', keyboardHandler);
   parentDomElement.addEventListener('mousemove', mouseHandler);
+  parentDomElement.addEventListener('keydown', async (e) => {if(e.key === '~') {console.log("~");await renderer.domElement.requestPointerLock()}});
 
   animLoop();
+  ctrlLoop();
 }

@@ -16,21 +16,13 @@ export class Player extends Unit {
   moveX(delta: number): void {
     super.moveX(delta);
 
-    if(delta > 0) {
-      this.#camera.position.add(new Vector3(-1, 0, 0));
-    } else {
-      this.#camera.position.add(new Vector3(1, 0, 0));
-    }
+    this.#camera.position.add(new Vector3(-delta, 0, 0));
   }
 
   moveY(delta: number): void {
     super.moveY(delta);
 
-    if(delta > 0) {
-      this.#camera.position.add(new Vector3(0, 0, 1));
-    } else {
-      this.#camera.position.add(new Vector3(0, 0, -1));
-    }
+    this.#camera.position.add(new Vector3(0, 0, delta));
   }
 
   moveZ(delta: number): void {
@@ -42,10 +34,6 @@ export class Player extends Unit {
 
     const { x: camRtnX, y: camRtnY, z: camRtnZ } = this.#camera.rotation;
     this.#camera.rotation.set(camRtnX - delta, camRtnY, camRtnZ, 'YXZ');
-
-    
-    console.log("x: " + super.getXRtn());
-    console.log("camX: " + this.#camera.rotation.x)
   }
 
   rotateY(delta: number): void {

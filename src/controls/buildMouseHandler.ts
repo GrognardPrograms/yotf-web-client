@@ -1,4 +1,4 @@
-import { Unit } from "../types";
+import { Player } from "../types";
 import { degToRad } from "../utils/geometry/degToRad";
 
 const xRtnAdj = 2;
@@ -7,7 +7,7 @@ const yRtnAdj = 2;
 const highViewBound = -0.375;
 const lowViewBound = 0.375;
 
-export const buildMouseHandler = (playerCharacter: Unit) => {
+export const buildMouseHandler = (playerCharacter: Player) => {
   return (e: MouseEvent) => {
     playerCharacter.rotateX(degToRad(e.movementY) / xRtnAdj);
     playerCharacter.rotateY(degToRad(e.movementX) / yRtnAdj);
