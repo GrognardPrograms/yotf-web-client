@@ -1,8 +1,8 @@
 import { Camera, Vector3 } from "three";
 
 import { Unit } from "./unit";
-import { Rotation } from "../geometry/rotation";
-import { Coordinate } from "../geometry/coordinate";
+import { Rotation } from "../../../utils/geometry/types/rotation";
+import { Coordinate } from "../../../utils/geometry/types/coordinate";
 
 export class Player extends Unit {
   #camera

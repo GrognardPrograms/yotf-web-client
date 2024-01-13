@@ -1,4 +1,4 @@
-import { Coordinate } from "../geometry/coordinate";
+import { Coordinate } from "../../../utils/geometry/types/coordinate";
 import { MapTile, MapTileValues } from "./mapTile";
 import { TileType } from "./tileType";
 

@@ -1,5 +1,5 @@
-import { Player } from "../types";
-import { ControlStateReader } from "./types/controlStateReader";
+import { Player } from "../gameplay/types";
+import { ControlStateReader } from "./types";
 
 export const buildCtrlLoop = (state: ControlStateReader, playerCharacter: Player) => {
   let run = true;

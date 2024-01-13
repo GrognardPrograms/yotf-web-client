@@ -1,4 +1,4 @@
-import { Player } from "../types";
+import { Player } from "../gameplay/types";
 import { degToRad } from "../utils/geometry/degToRad";
 
 const xRtnAdj = 2;

@@ -1,6 +1,7 @@
 import { Texture } from "three";
 
-import { AreaMap, Coordinate, Rotation, TileType } from "../types";
+import { AreaMap, TileType } from "../gameplay";
+import { Coordinate, Rotation } from "../utils/geometry";
 import { buildWallMesh } from "./meshes";
 
 export const loadScene = (scene: any, textureDictionary: Map<string, Texture>, areaMap: AreaMap) => {

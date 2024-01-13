@@ -1,7 +1,7 @@
 import { BoxGeometry, Mesh, MeshBasicMaterial, Texture } from "three";
 
-import { Coordinate, Rotation } from "../../types";
 import { loadFaceTexture } from "../textures";
+import { Coordinate, Rotation } from "../../utils/geometry";
 
 export const buildWallMesh = (texture: Texture, position: Coordinate, rotation: Rotation): Mesh => {
   const wallGeometry = new BoxGeometry(2, 2, 2);

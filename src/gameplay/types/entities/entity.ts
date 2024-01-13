@@ -1,5 +1,5 @@
-import { Rotation, RotationSnapshot } from "../geometry/rotation";
-import { Coordinate, CoordinateSnapshot } from "../geometry/coordinate";
+import { Rotation, RotationSnapshot } from "../../../utils/geometry/types/rotation";
+import { Coordinate, CoordinateSnapshot } from "../../../utils/geometry/types/coordinate";
 
 export class Entity {
   #position: Coordinate;

@@ -1,1 +1,1 @@
-export {loadClient} from './loadClient';
+export { loadClient } from './loadClient';
