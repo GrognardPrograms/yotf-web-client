@@ -1,0 +1,1 @@
+export { moveCharacter } from './moveCharacter';
