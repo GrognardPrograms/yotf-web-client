@@ -1,13 +1,14 @@
-import { Player } from "../../gameplay/types";
-import { degToRad } from "../../geometry/degToRad";
+import { Player } from "../../gameplay";
+import { degToRad } from "../../geometry";
+
+import {
+  highViewBound,
+  lowViewBound,
+  xRtnAdj,
+  yRtnAdj
+} from "../constants";
 
 import { MouseHandler } from "../types";
-
-const xRtnAdj = 2;
-const yRtnAdj = 2;
-
-const highViewBound = -0.375;
-const lowViewBound = 0.375;
 
 export const buildMouseHandler = (playerCharacter: Player): MouseHandler => {
   return (e: MouseEvent) => {
@@ -15,13 +16,11 @@ export const buildMouseHandler = (playerCharacter: Player): MouseHandler => {
     playerCharacter.rotateY(degToRad(e.movementX) / yRtnAdj);
 
     const x = playerCharacter.getXRtn();
-    const above = x < highViewBound;
-    const below = x > lowViewBound;
 
-    if(above) {
+    if(x < highViewBound) {
       const correction = highViewBound - x;
       playerCharacter.rotateX(correction);
-    } else if(below) {
+    } else if(x > lowViewBound) {
       const correction = lowViewBound - x;
       playerCharacter.rotateX(correction);
     }
