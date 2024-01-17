@@ -3,7 +3,7 @@ import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
 import { buildCtrlLoop, buildKeyboardHandler, buildMouseHandler, ControlState } from "./controls";
 import { AreaMap, Player } from "./gameplay";
 import { buildAnimLoop, buildTextureDictionary, loadScene } from "./graphics";
-import { Coordinate, Rotation } from "./utils/geometry";
+import { Coordinate, Rotation } from "./geometry";
 
 export const loadClient = (parentDomElement) => {
   const renderer = new WebGLRenderer();

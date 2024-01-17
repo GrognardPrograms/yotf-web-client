@@ -8,7 +8,7 @@ module.exports = (env, argv) => {
   const plugins = [];
 
   if(isDev) {
-    entry.devRunner = './src/utils/test-utils/devRunner.ts'
+    entry.devRunner = './src/test-utils/devRunner.ts'
 
     plugins.push(new HtmlWebpackPlugin())
   }
