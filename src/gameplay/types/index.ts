@@ -1,5 +1,10 @@
-export { Unit } from './entities/unit';
-export { Player } from './entities/player';
-export { AreaMap } from './map/areaMap';
-export { MapTile } from './map/mapTile';
-export { TileType } from './map/tileType';
+export {
+  AreaMap,
+  MapTile,
+  Player,
+  Unit
+} from './classes';
+
+export { TileType } from './enums';
+
+export { MapTileReader } from './interfaces';

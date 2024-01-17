@@ -1,4 +1,4 @@
-import { TileType } from "./tileType";
+import { TileType } from "../../enums";
 
 export class MapTile {
   #tileType: TileType;
@@ -10,12 +10,4 @@ export class MapTile {
   getTileType(): TileType {
     return this.#tileType;
   }
-
-  getMapTileValues(): MapTileValues {
-    return {tileType: this.#tileType};
-  }
-}
-
-export interface MapTileValues {
-  tileType: TileType;
 }

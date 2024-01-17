@@ -1,1 +1,8 @@
-export { AreaMap, MapTile, Player, TileType, Unit } from './types'
+export {
+  AreaMap,
+  MapTile,
+  MapTileReader,
+  Player,
+  TileType,
+  Unit
+} from './types'

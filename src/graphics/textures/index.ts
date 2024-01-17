@@ -1,1 +1,1 @@
-export {loadFaceTexture} from './loadFaceTexture';
+export { loadFaceTexture } from './loadFaceTexture';

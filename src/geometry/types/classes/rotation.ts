@@ -21,14 +21,6 @@ export class Rotation {
     return this.#zRtn;
   }
 
-  getRtnValues(): RotationSnapshot {
-    return {
-      x: this.#xRtn,
-      y: this.#yRtn,
-      z: this.#zRtn
-    };
-  }
-
   setXRtn(value: number): void {
     this.#xRtn = value;
   }
@@ -40,10 +32,4 @@ export class Rotation {
   setZRtn(value: number): void {
     this.#zRtn = value;
   }
-}
-
-export interface RotationSnapshot {
-  x: number;
-  y: number;
-  z: number;
 }

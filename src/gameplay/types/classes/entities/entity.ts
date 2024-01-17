@@ -1,5 +1,4 @@
-import { Rotation, RotationSnapshot } from "../../../geometry/types/rotation";
-import { Coordinate, CoordinateSnapshot } from "../../../geometry/types/coordinate";
+import { Coordinate, Rotation } from "../../../../geometry";
 
 export class Entity {
   #position: Coordinate;
@@ -22,10 +21,6 @@ export class Entity {
     return this.#position.getZ();
   }
 
-  getCoordinateValues(): CoordinateSnapshot {
-    return this.#position.getCoordinateValues();
-  }
-
   getXRtn(): number {
     return this.#rotation.getXRtn();
   }
@@ -36,10 +31,6 @@ export class Entity {
 
   getZRtn(): number {
     return this.#rotation.getZRtn();
-  }
-
-  getRtnValues(): RotationSnapshot {
-    return this.#rotation.getRtnValues();
   }
 
   moveX(delta: number): void {

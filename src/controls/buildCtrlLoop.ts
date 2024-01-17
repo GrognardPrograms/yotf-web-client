@@ -1,4 +1,4 @@
-import { Player } from "../gameplay/types";
+import { Player } from "../gameplay";
 import { ControlStateReader } from "./types";
 
 export const buildCtrlLoop = (state: ControlStateReader, playerCharacter: Player) => {
@@ -36,5 +36,5 @@ export const buildCtrlLoop = (state: ControlStateReader, playerCharacter: Player
     run = false;
   }
 
-  return {ctrlLoop, killLoop};
+  return { ctrlLoop, killLoop };
 }

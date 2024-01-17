@@ -21,10 +21,6 @@ export class Coordinate {
     return this.#z;
   }
 
-  getCoordinateValues(): CoordinateSnapshot {
-    return { x: this.#x, y: this.#y, z: this.#z };
-  }
-
   setX(value: number): void {
     this.#x = value;
   }
@@ -36,10 +32,4 @@ export class Coordinate {
   setZ(value: number): void {
     this.#z = value;
   }
-}
-
-export interface CoordinateSnapshot {
-  x: number,
-  y: number,
-  z: number
 }

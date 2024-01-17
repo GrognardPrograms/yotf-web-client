@@ -14,7 +14,7 @@ export const loadScene = (scene: any, textureDictionary: Map<string, Texture>, a
 
   for(let x = 0; x < width; x++) {
     for(let y = 0; y < height; y++) {
-      const {tileType} = areaMap.getMapTile(x, y);
+      const tileType = areaMap.getMapTileReader(x, y).getTileType();
 
       if(tileType === TileType.Wall) {
         const wallTexture: Texture = textureDictionary.get('faceTexture');

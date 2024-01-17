@@ -1,6 +1,9 @@
-import { Coordinate } from "../../../geometry/types/coordinate";
-import { MapTile, MapTileValues } from "./mapTile";
-import { TileType } from "./tileType";
+import { Coordinate } from "../../../../geometry";
+
+import { MapTile } from "./mapTile";
+
+import { TileType } from "../../enums";
+import { MapTileReader } from "../../interfaces";
 
 export class AreaMap {
   #width: number;
@@ -29,8 +32,8 @@ export class AreaMap {
     }
   }
 
-  getMapTile(x: number, y: number): MapTileValues {
-    return this.#mapGrid[x][y].getMapTileValues();
+  getMapTileReader(x: number, y: number): MapTileReader {
+    return this.#mapGrid[x][y];
   }
 
   getWidth() {

@@ -1,2 +1,3 @@
-export { Coordinate } from './coordinate';
-export { Rotation } from './rotation';
+export { Coordinate, Rotation } from './classes';
+
+export { CoordinateReader, RotationReader } from './interfaces';

@@ -1,3 +1,3 @@
 export { degToRad } from './degToRad';
 
-export { Coordinate, Rotation } from './types';
+export { Coordinate, CoordinateReader, Rotation, RotationReader } from './types';
