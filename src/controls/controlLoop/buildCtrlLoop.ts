@@ -4,6 +4,7 @@ import { speed, tickTime } from "../constants";
 import { moveCharacter } from "./utils";
 
 import { ControlStateReader } from "../types";
+import { hasCollided } from "../../gameplay/hasCollided";
 
 export const buildCtrlLoop = (state: ControlStateReader, playerCharacter: Player) => {
   let run = true;
@@ -11,20 +12,24 @@ export const buildCtrlLoop = (state: ControlStateReader, playerCharacter: Player
   const ctrlLoop = () => {
     const playerRtn = playerCharacter.getYRtn();
 
+    const isMoving = state.getForward() || state.getBackward() || state.getRight() || state.getLeft();
+    let directions = [];
+
     if(state.getForward()) {
-      moveCharacter(playerCharacter, playerRtn, speed);
-    } else if(state.getRight()) {
-      const modRtn = playerRtn + Math.PI/2;
-
-      moveCharacter(playerCharacter, modRtn, speed);
+      directions.push(0);
     } else if(state.getBackward()) {
-      const modRtn = playerRtn + Math.PI;
+      directions.push(Math.PI)
+    }
+    
+    if(state.getRight() || state.getLeft()) {
+      directions.push(Math.PI/2);
+    }
 
-      moveCharacter(playerCharacter, modRtn, speed);
-    } else if(state.getLeft()) {
-      const modRtn = playerRtn - Math.PI/2;
-
-      moveCharacter(playerCharacter, modRtn, speed);
+    if(isMoving) {
+      const rtnModCoef = state.getLeft() ? -1 : 1;
+      const rtnMod = directions.reduce((prev, next) => prev + next, 0) / directions.length;
+      
+      moveCharacter(playerCharacter, playerRtn + (rtnModCoef * rtnMod), speed);
     }
 
     run && setTimeout(ctrlLoop, tickTime);
